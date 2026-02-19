@@ -1,0 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ExpertsList from "./pages/ExpertsList";
+import ExpertDetail from "./pages/ExpertDetail";
+import BookingForm from "./pages/BookingForm";
+import MyBookings from "./pages/MyBookings";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ExpertsList />} />
+        <Route path="/experts/:id" element={<ExpertDetail />} />
+        <Route path="/book/:expertId" element={<BookingForm />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
