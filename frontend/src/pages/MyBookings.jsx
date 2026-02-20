@@ -13,10 +13,19 @@ const MyBookings = () => {
       alert(err.message);
     }
   };
+  const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = "/login";
+};
+  
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>My Bookings</h2>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+  <h2>My Bookings</h2>
+  <button onClick={handleLogout}>Logout</button>
+</div>
 
       <input
         type="email"

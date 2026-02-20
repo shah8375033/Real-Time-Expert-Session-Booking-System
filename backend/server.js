@@ -26,6 +26,7 @@ app.set("io", io);
 // Routes
 app.use("/experts", require("./routes/expertRoutes"));
 app.use("/bookings", require("./routes/bookingRoutes"));
+app.use("/auth", require("./routes/authRoutes"));
 
 app.get("/", (req, res) => {
   res.send("API is running...");

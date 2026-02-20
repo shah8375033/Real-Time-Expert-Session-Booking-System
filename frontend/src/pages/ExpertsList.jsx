@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 const ITEMS_PER_PAGE = 3;
 
 const ExpertsList = () => {
+  const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = "/login";
+};
   const [experts, setExperts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [search, setSearch] = useState("");
@@ -53,7 +58,10 @@ const ExpertsList = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Experts</h2>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+  <h2>Experts</h2>
+  <button onClick={handleLogout}>Logout</button>
+</div>
 
       {/* Search */}
       <input
