@@ -17,16 +17,18 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<ExpertsList />} />
-        <Route path="/expert/:id" element={<ExpertDetail />} />
-        
+
+        {/* FIXED plural route */}
+        <Route path="/experts/:id" element={<ExpertDetail />} />
+
         <Route
           path="/payment"
           element={
             <Elements stripe={stripePromise}>
               <Payment />
-              </Elements>
-  }
-/>
+            </Elements>
+          }
+        />
 
         <Route
           path="/book/:id"
@@ -48,7 +50,6 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );

@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { api } from "../services/api";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const MyBookings = () => {
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    if (location.state?.success) {
+      alert("Booking Confirmed 🎉");
+    }
+  }, []);
 
   const fetchBookings = async () => {
     try {

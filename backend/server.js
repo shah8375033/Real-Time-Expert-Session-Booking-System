@@ -19,6 +19,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: "*" },
 });
+// Payment routes
+const paymentRoutes = require("./routes/paymentRoutes");
 
 // Make io accessible in controllers
 app.set("io", io);
@@ -27,6 +29,7 @@ app.set("io", io);
 app.use("/experts", require("./routes/expertRoutes"));
 app.use("/bookings", require("./routes/bookingRoutes"));
 app.use("/auth", require("./routes/authRoutes"));
+app.use("/api/payment", paymentRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
